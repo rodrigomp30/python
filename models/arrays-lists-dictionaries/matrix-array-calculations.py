@@ -9,13 +9,15 @@ mock_matrix = np.array([
     [200, 300, 400, 500, 600]   # m3 count_of_events, etc.
 ])
 
-# Purpose: Changes array dimensions without changing data.
 
-reshaped_matrix = mock_matrix.reshape(5,5) # 5 rows, 5 columns
-print(reshaped_matrix)
+# Sum along rows (axis=1)
+row_sum = np.sum(mock_matrix, axis=1)
+print(row_sum)
 
-flattened = reshaped_matrix.flatten() # 1D array
-print(flattened)
+# Mean along columns (axis=0)
+col_mean = np.mean(mock_matrix, axis=0)
+print(col_mean)
 
-transposed = reshaped_matrix.T # Swap rows and columns (transpose)
-print(transposed)
+# Loop for custom aggregation
+row_sum_loop = [sum(row) for row in mock_matrix]
+print(row_sum_loop)
