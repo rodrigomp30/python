@@ -9,21 +9,9 @@ mock_matrix = np.array([
     [200, 300, 400, 500, 600]   # m3 count_of_events, etc.
 ])
 
-# Purpose: Create arrays from lists or generate identity matrices.
+# Purpose: Changes array dimensions without changing data.
 
-# From a list
-array_from_list = np.array([100, 200, 300, 400, 500])
-print(array_from_list)
+reshaped_matrix = mock_matrix.reshape(5,5) # 5 rows, 5 columns
+print(reshaped_matrix)
 
-# Zero matrix
-zero_matrix = np.zeros((3,5)) # 3 rows 5 columns
-print(zero_matrix)
-
-# Ones matrix
-ones_matrix = np.ones((3,5))
-print(ones_matrix)
-
-# Identity Matrix
-identity_matrix = np.eye(3) #3x3
-print(identity_matrix)
-
+flattened
