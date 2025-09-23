@@ -7,6 +7,8 @@ from statsmodels.formula.api import ols
 
 np.random.seed(42)
 
+
+
 # Mock data
 data = {
     'merchant_id': np.random.choice(['m1', 'm2', 'm3'], 100),
@@ -16,11 +18,9 @@ data = {
     'success': np.random.choice([0, 1], 100, p=[0.3, 0.7])  # For binomial
 }
 df = pd.DataFrame(data)
-# print("Mock DataFrame:")
-# print(df.head())
 
-contigency = pd.crosstab(df['segment'], df['success'])
-print(contigency)
+successes = np.sum(df['count_of_events'] > 300)
+n = len(df)
 
-chi2, p, dof, expected = stats.chi2_contingency(contigency)
-print(f'Chi2: {chi2}, p-value:{p}')
+result = stats.binomtest(successes, n, p=0.5, alternative='two-sided')
+print(f'p-value: {result.pvalue}')

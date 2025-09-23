@@ -16,11 +16,10 @@ data = {
     'success': np.random.choice([0, 1], 100, p=[0.3, 0.7])  # For binomial
 }
 df = pd.DataFrame(data)
-# print("Mock DataFrame:")
-# print(df.head())
 
-contigency = pd.crosstab(df['segment'], df['success'])
-print(contigency)
+saas_data = df[df['segment'] == 'saas']['usd_amount']
+ecommerce_data = df[df['segment'] == 'ecommerce']['usd_amount']
+platforms_data = df[df['segment'] == 'platforms']['usd_amount']
 
-chi2, p, dof, expected = stats.chi2_contingency(contigency)
-print(f'Chi2: {chi2}, p-value:{p}')
+f_stat, p = stats.f_oneway(saas_data, ecommerce_data, platforms_data)
+print(f'f-stat: {f_stat}, p-value: {p}')

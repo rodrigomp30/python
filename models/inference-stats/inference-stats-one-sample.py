@@ -16,11 +16,7 @@ data = {
     'success': np.random.choice([0, 1], 100, p=[0.3, 0.7])  # For binomial
 }
 df = pd.DataFrame(data)
-# print("Mock DataFrame:")
-# print(df.head())
 
-contigency = pd.crosstab(df['segment'], df['success'])
-print(contigency)
 
-chi2, p, dof, expected = stats.chi2_contingency(contigency)
-print(f'Chi2: {chi2}, p-value:{p}')
+t_stat, p = stats.ttest_1samp(df['usd_amount'], 150)
+print(f't-stat: {t_stat}, p-value: {p}')
