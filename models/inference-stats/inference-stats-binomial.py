@@ -7,8 +7,6 @@ from statsmodels.formula.api import ols
 
 np.random.seed(42)
 
-
-
 # Mock data
 data = {
     'merchant_id': np.random.choice(['m1', 'm2', 'm3'], 100),
