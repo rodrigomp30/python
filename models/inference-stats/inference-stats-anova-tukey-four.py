@@ -3,7 +3,7 @@ import pandas as pd
 from scipy import stats
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
-# Step 1: Create DataFrame (simulated MasterClass A/B/C on email open rates; replace with real data)
+# Step 1: Create DataFrame (simulated MasterClass A/B/C on test email open rates; replace with real data)
 np.random.seed(404)  # For this exercise
 group_a = np.random.normal(22, 5, 100)  # Variant A: Morning, ~22% mean
 group_b = np.random.normal(20, 5, 100)  # Variant B: Afternoon, ~20% mean
